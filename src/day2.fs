@@ -11,7 +11,7 @@ let rec findDivisible (numbers: int list) =
         if Seq.length divisible > 0 then (x, Seq.head divisible) else findDivisible xs
 
 let checksum2 numbers =
-    let (x, y) = findDivisible ((Seq.sort >> Seq.rev >> Seq.toList) numbers)
+    let (x, y) = (Seq.sort >> Seq.rev >> Seq.toList >> findDivisible) numbers
     x / y
 
 let parseLine (str: string) =
